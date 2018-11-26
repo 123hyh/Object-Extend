@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body> 
+  <script>
+    function TestA(name){
+      this.name = name;
+    }
+    TestA.prototype.handlerClick = function(){
+      console.log(this.name)
+    }
+    var App = new TestA('黄裕辉');
+
+    function testB(){
+      var arr = [...arguments];
+      arr.forEach((item,i)=>{
+        console.log(item)
+      })
+    }
+    // var testB = testB.bind(App);  testB();
+    //var testB = testB.call(App);
+
+    var apple = {
+      name:'苹果',
+    }
+    var balace = {
+      name: '雪梨'
+    }
+    testB.call(apple,apple,balace)
+    // testB.apply(apple,[apple,balace])
+    
+    /* function TestC(name){
+      console.log(name);
+      console.log(this)
+    }
+    var arr = ['苹果'];
+    arr.forEach(TestC,App) */
+  </script>
+</body>
+</html>
